@@ -10,7 +10,7 @@ Member 1: Sumedha N- College of Engineering Trivandrum
 Member 2: Ann Mathew - College of Engineering TRivandrum
 
 Hosted Project Link
-[mention your project hosted link here]
+https://annmathew3106.github.io/tink-her-hack-temp/
 
 Project Description
 CampusConnect is a web-based college portal that helps students share doubts, report lost and found items, and view important announcements in one place, improving campus communication.
@@ -212,9 +212,12 @@ Output:
   }
 }
 [VERBOSE] Operation completed in 0.23s
+
+
+
 Project Demo
 Video
-[Add your demo video link here - YouTube, Google Drive, etc.]
+https://www.youtube.com/watch?v=BkdQkEORdRA
 
 The above video demonstrates the key features of CampusConnect.
 The portal includes an About section describing its purpose and benefits for students.
