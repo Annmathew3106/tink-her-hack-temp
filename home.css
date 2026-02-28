@@ -13,9 +13,9 @@ body {
 /* ❓ Question Mark Background */
 .questions-bg {
     position: fixed;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     z-index: -1;
+    pointer-events: none;
 }
 
 .questions-bg span {
@@ -23,9 +23,9 @@ body {
     bottom: -50px;
     font-size: 40px;
     font-weight: 900;
-    /* fully opaque for highest contrast */
-    color: rgba(37,99,235,1);
-    animation: floatQ 10s linear infinite;
+    /* darker for better visibility */
+    color: rgba(37,99,235,0.6);
+    animation: floatQ linear infinite;
 }
 
 .questions-bg span:nth-child(1) { left: 10%; animation-duration: 8s; }
@@ -48,15 +48,17 @@ body {
 /* Layout */
 .layout {
     display: flex;
+    min-height: 100vh;
 }
 
 /* Sidebar */
 .sidebar {
     width: 240px;
-    height: 100vh;
     background: #1e293b;
     padding: 25px 15px;
     position: fixed;
+    top: 0;
+    bottom: 0;
     color: white;
 }
 
@@ -104,6 +106,7 @@ body {
 .main-content {
     margin-left: 240px;
     padding: 40px;
+    width: 100%;
 }
 
 /* Info Box */
@@ -162,7 +165,7 @@ body {
 
 /* About Section */
 .about-section {
-    margin-top: 140px; /* push card further down from heading */
+    margin-top: 100px;
     text-align: center;
 }
 
@@ -178,12 +181,8 @@ body {
 }
 
 @keyframes glowBox {
-    from {
-        box-shadow: 0 0 15px rgba(37,99,235,0.4);
-    }
-    to {
-        box-shadow: 0 0 30px rgba(37,99,235,0.8);
-    }
+    from { box-shadow: 0 0 15px rgba(37,99,235,0.4); }
+    to { box-shadow: 0 0 30px rgba(37,99,235,0.8); }
 }
 
 .about-card p {
@@ -191,3 +190,4 @@ body {
     line-height: 1.8;
     color: #1e293b;
 }
+
