@@ -6,7 +6,7 @@
 }
 
 body {
-    background: linear-gradient(135deg, #e0f7fa 0%, #f3e5f5 100%);
+    background-color: #f4f6f9;
 }
 
 /* Layout */
@@ -18,8 +18,8 @@ body {
 .sidebar {
     width: 240px;
     height: 100vh;
-    background: linear-gradient(180deg, #4f46e5 0%, #3b82f6 100%);
-    color: #ffffff;
+    background-color: #1e293b;
+    color: white;
     padding: 25px 15px;
     position: fixed;
 }
@@ -64,16 +64,12 @@ body {
 
 .top-right-option a {
     text-decoration: none;
-    background: linear-gradient(90deg, #10b981 0%, #3b82f6 100%);
+    background-color: #4f46e5;
     color: white;
     padding: 8px 12px;
     border-radius: 4px;
     font-size: 14px;
-    transition: background 0.3s;
-}
-
-.top-right-option a:hover {
-    background: linear-gradient(90deg, #059669 0%, #2563eb 100%);
+    transition: background-color 0.3s;
 }
 
 .top-right-option a:hover {
@@ -141,11 +137,11 @@ body {
 }
 
 .post-box:nth-child(odd) {
-    background-color: #e0f2fe;
+    background-color: #f0f9ff;
 }
 
 .post-box:nth-child(even) {
-    background-color: #ffedd5;
+    background-color: #fffbeb;
 }
 
 .post-header {

@@ -61,6 +61,40 @@ body {
     width: 100%;
 }
 
+/* Info box on dashboard */
+.info-box {
+    background: #ffffff;
+    padding: 20px 25px;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: #333;
+    font-weight: 600; /* slightly bolder text */
+    position: relative;
+    overflow: hidden;
+}
+
+/* animated text shadow effect */
+@keyframes shadowPulse {
+    0%, 100% {
+        text-shadow: 0 0 0 rgba(0,0,0,0);
+    }
+    50% {
+        text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+    }
+}
+
+.info-box p {
+    animation: shadowPulse 4s ease-in-out infinite alternate;
+}
+
+.info-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
 /* Active link highlight */
 .nav-links a.active {
     background-color: #2563eb;
