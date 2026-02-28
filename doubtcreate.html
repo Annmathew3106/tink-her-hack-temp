@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Doubt</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="doubts.css">
+</head>
+<body>
+
+<div class="layout">
+    <!-- Sidebar (reuse navigation from doubts.html) -->
+    <div class="sidebar">
+        <h2 class="logo">CampusConnect</h2>
+        <ul class="nav-links">
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="lost.html">Lost & Found</a></li>
+            <li><a href="#">Notices & Announcements</a></li>
+            <li><a href="doubts.html">Doubts</a></li>
+        </ul>
+    </div>
+
+    <main class="main-content">
+        <h1>Create Your Doubt</h1>
+        <form class="doubt-form" action="#" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="year">Year *</label>
+                <select id="year" name="year" required>
+                    <option value="" disabled selected>Select year</option>
+                    <option value="first">First</option>
+                    <option value="second">Second</option>
+                    <option value="third">Third</option>
+                    <option value="fourth">Fourth</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="branch">Branch *</label>
+                <select id="branch" name="branch" required>
+                    <option value="" disabled selected>Select branch</option>
+                    <option value="cs">CS</option>
+                    <option value="ee">EE</option>
+                    <option value="ece">ECE</option>
+                    <option value="mech">Mech</option>
+                    <option value="civil">Civil</option>
+                    <option value="industrial">Industrial</option>
+                    <option value="architecture">Architecture</option>
+                    <option value="applied">Applied Instrumentation</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="doubt">Doubt *</label>
+                <textarea id="doubt" name="doubt" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="attachment">Upload picture (optional)</label>
+                <input type="file" id="attachment" name="attachment" accept="image/*">
+            </div>
+            <div class="form-actions">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+</div>
+
+</body>
+</html>
