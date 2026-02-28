@@ -13,7 +13,7 @@
 <div class="layout">
     <!-- Top right option -->
     <div class="top-right-option">
-        <a href="#">CREATE</a>
+        <a href="doubtcreate.html">CREATE</a>
     </div>
 
     <!-- Sidebar -->
@@ -22,13 +22,124 @@
 
         <ul class="nav-links">
             <li><a href="home.html">Dashboard</a></li>
-            <li><a href="#">Lost & Found</a></li>
+            <li><a href="lost.html">Lost & Found</a></li>
             <li><a href="#">Notices & Announcements</a></li>
             <li><a href="doubts.html">Doubts</a></li>
         </ul>
     </div>
 
+<main class="main-content">
+    <h1>Doubts</h1>
+    <p class="tagline">Ask freely and help the community grow.</p>
+    <p class="intro">Your doubt might be someone else’s too.</p>
 
+    <!-- dummy posts container -->
+    <div class="posts-container">
+        <div class="post-box">
+            <div class="post-header">
+                <span class="post-name">Alice</span> <span class="post-year">1st year</span> &mdash; <span class="post-branch">CS</span>
+                <span class="post-date">2026-02-28</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">Is there any internship opportunity in AI this summer?</p>
+                <img class="post-image" src="img.png" alt="attachment" />
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+        <div class="post-box">
+            <div class="post-header">
+                <span class="post-name">Bob</span> <span class="post-year">2nd year</span> &mdash; <span class="post-branch">ECE</span>
+                <span class="post-date">2026-01-15</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">How to prepare for the upcoming placements?</p>
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+        <div class="post-box">
+
+            <div class="post-header">
+                <span class="post-name">Carol</span> <span class="post-year">3rd year</span> &mdash; <span class="post-branch">Mech</span>
+                <span class="post-date">2025-12-05</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">What extracurricular activities are good for engineering students?</p>
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+        <div class="post-box">
+            <div class="post-header">
+                <span class="post-name">Dave</span> <span class="post-year">2nd year</span> &mdash; <span class="post-branch">Civil</span>
+                <span class="post-date">2026-02-20</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">How do I accumulate KTU activity points efficiently?</p>
+                <img class="post-image" src="img.png" alt="KTU points proof" />
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+        <div class="post-box">
+            <div class="post-header">
+                <span class="post-name">Eva</span> <span class="post-year">1st year</span> &mdash; <span class="post-branch">EE</span>
+                <span class="post-date">2026-02-25</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">What is the process to join college clubs?</p>
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+        <div class="post-box">
+            <div class="post-header">
+                <span class="post-name">Frank</span> <span class="post-year">4th year</span> &mdash; <span class="post-branch">CS</span>
+                <span class="post-date">2026-02-27</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">Can someone suggest good open-source projects for beginners?</p>
+            </div>
+            <div class="comments">
+                <textarea placeholder="Add a comment..."></textarea>
+                <button class="comment-btn">Post</button>
+            </div>
+        </div>
+    </div>
+    <!-- modal for enlarged view -->
+    <div id="post-modal" class="modal">
+        <div class="modal-content"></div>
+        <span class="modal-close">&times;</span>
+    </div>
+
+    <script>
+        // enlarge on click and show comment area in modal
+        const modal = document.getElementById('post-modal');
+        const modalContent = modal.querySelector('.modal-content');
+        const closeBtn = modal.querySelector('.modal-close');
+        document.querySelectorAll('.post-box').forEach(box => {
+            box.addEventListener('click', () => {
+                modalContent.innerHTML = box.innerHTML;
+                modal.classList.add('active');
+            });
+        });
+        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+        modal.addEventListener('click', e => {
+            if (e.target === modal) modal.classList.remove('active');
+        });
+    </script>
+</main>
 
 
 </body>
