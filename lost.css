@@ -1,0 +1,159 @@
+/* Lost & Found page specific styles (leveraging home.css for layout and common elements) */
+
+.lost-found-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    max-width: 800px;
+}
+
+.lost-found-container section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.lost-found-container h2 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+/* form style */
+.lost-found-container form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.lost-found-container form input,
+.lost-found-container form select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 4px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+.lost-found-container form button {
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.lost-found-container form button:hover {
+    background-color: #1e40af;
+}
+
+/* table */
+.lost-found-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* image cell */
+.lost-found-container td img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* file input styling */
+.lost-found-container form input[type="file"] {
+    margin-top: 4px;
+}
+
+.lost-found-container th,
+.lost-found-container td {
+    border: 1px solid #e2e8f0;
+    padding: 8px;
+    text-align: left;
+}
+
+.lost-found-container th {
+    background-color: #f1f5f9;
+}
+
+/* layout wrapper with sidebar */
+.lost-found-wrapper {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap; /* stack on smaller screens */
+}
+
+.lost-found-main {
+    flex: 2;
+}
+
+.lost-found-sidebar {
+    flex: 1;
+    min-width: 240px; /* ensure sidebar stays visible */
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    height: fit-content;
+}
+
+.lost-found-sidebar h2 {
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.lost-found-sidebar .sidebar-illustration img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 20px;
+}
+
+.lost-found-sidebar .sidebar-stats {
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    color: #334155;
+}
+
+.lost-found-sidebar ul {
+    list-style: disc inside;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.lost-found-sidebar a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.lost-found-sidebar a:hover {
+    text-decoration: underline;
+}
+
+/* search input */
+#searchInput {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #cbd5e1;
+    border-radius: 4px;
+}
+
+/* filter buttons */
+.lost-found-container #search button {
+    margin-right: 5px;
+    padding: 6px 12px;
+    border: none;
+    background-color: #94a3b8;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.lost-found-container #search button:hover {
+    background-color: #64748b;
+}
