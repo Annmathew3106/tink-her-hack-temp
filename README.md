@@ -1,20 +1,25 @@
-Campus connect 🎯
+<img width="1913" height="1076" alt="Screenshot 2026-02-28 172855" src="https://github.com/user-attachments/assets/867a1db6-a169-4933-a4de-43bf1fb2e1bc" />Campus connect 🎯
+
 Basic Details
 Team Name: CodeSquared
+
 Team Members
+
 Member 1: Sumedha N- College of Engineering Trivandrum
+
 Member 2: Ann Mathew - College of Engineering TRivandrum
+
 Hosted Project Link
 [mention your project hosted link here]
 
 Project Description
-[2-3 lines about what your project does]
+CampusConnect is a web-based college portal that helps students share doubts, report lost and found items, and view important announcements in one place, improving campus communication.
 
-The Problem statement
-[What problem are you solving?]
+Problem Statement
+Students often miss important information and struggle to get quick help because doubts, notices, and lost items are scattered across different platforms or offline methods.
 
 The Solution
-[How are you solving it?]
+CampusConnect provides a centralized, easy-to-use platform where students can post doubts, interact through comments, report lost and found items, and stay updated with campus announcements.
 
 Technical Details
 Technologies/Components Used
@@ -33,6 +38,8 @@ Feature 2: Doubts are shown in a clean 3-column layout.
 Feature 3: Clicking a post enlarges it for easy reading and typing.
 Feature 4: Comment section allows peer discussion and help.
 Implementation
+
+
 For Software:
 Installation
 [Installation commands - e.g., npm install, pip install -r requirements.txt]
@@ -43,11 +50,12 @@ Run
 Project Documentation
 For Software:
 Screenshots (Add at least 3)
-![Screenshot1](Add screenshot 1 here with proper name) Add caption explaining what this shows
+<img width="1913" height="1076" alt="Screenshot 2026-02-28 172855" src="https://github.com/user-attachments/assets/e96e10a0-e890-43b8-ad55-8d03e735e516" />
+THIS IS THE MAIN DASHBOARD OF OUR WEBSITE.IT DISPLAYS THE FEATURES OF THE WENSITE
 
-![Screenshot2](Add screenshot 2 here with proper name) Add caption explaining what this shows
 
-![Screenshot3](Add screenshot 3 here with proper name) Add caption explaining what this shows
+<img width="1919" height="1079" alt="Screenshot 2026-02-28 173156" src="https://github.com/user-attachments/assets/7153e6a9-7ccb-449f-9330-5b81f70aad61" />
+THIS IS LOST AND FOUND SECTION WHERE YOU CAN POST ABOUT THE LOST AND FOUND ITEMS.
 
 Diagrams
 System Architecture:
