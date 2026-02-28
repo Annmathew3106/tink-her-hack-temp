@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Lost & Found - Campus Portal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="home.css">
-    <link rel="stylesheet" href="lost.css">
+<meta charset="UTF-8">
+<title>Lost & Found - Campus Portal</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="lost.css">
 </head>
+
 <body>
 
 <div class="layout">
@@ -22,41 +26,52 @@
             <li><a href="lost.html" class="active">Lost & Found</a></li>
             <li><a href="notice.html">Notices & Announcements</a></li>
             <li><a href="doubts.html">Doubts</a></li>
-          
         </ul>
     </div>
 
-    <!-- Main Content -->
+    <!-- Main -->
     <div class="main-content">
         <h1>Lost & Found</h1>
+
         <div class="lost-found-wrapper">
+
             <div class="lost-found-main">
                 <div class="lost-found-container">
-                    <section id="report">
+
+                    <section>
                         <h2>Report an Item</h2>
+
                         <form id="itemForm">
+
                             <label>Type:
                                 <select name="type" required>
                                     <option value="Lost">Lost</option>
                                     <option value="Found">Found</option>
                                 </select>
                             </label>
+
                             <label>Description:
-                                <input type="text" name="description" required placeholder="e.g. blue backpack">
+                                <input type="text" name="description" required>
                             </label>
+
                             <label>Location:
-                                <input type="text" name="location" required placeholder="Where it was lost/found">
+                                <input type="text" name="location" required>
                             </label>
+
                             <label>Image (optional):
                                 <input type="file" name="image" accept="image/*">
                             </label>
+
                             <button type="submit">Submit Report</button>
+
                         </form>
                     </section>
 
-                    <section id="search">
+                    <section>
                         <h2>Search Records</h2>
+
                         <input type="text" id="searchInput" placeholder="Search by keyword...">
+
                         <div style="margin-top:10px;">
                             <button onclick="filterType('All')">All</button>
                             <button onclick="filterType('Lost')">Lost</button>
@@ -64,119 +79,169 @@
                         </div>
                     </section>
 
-                    <section id="itemsList">
+                    <section>
                         <h2>Records</h2>
+
                         <table>
                             <thead>
-                                <tr><th>Type</th><th>Description</th><th>Location</th><th>Image</th></tr>
+                            <tr>
+                                <th>Type</th>
+                                <th>Description</th>
+                                <th>Location</th>
+                                <th>Image</th>
+                            </tr>
                             </thead>
-                            <tbody id="tableBody">
-                                <!-- rows inserted by script -->
-                            </tbody>
+
+                            <tbody id="tableBody"></tbody>
                         </table>
                     </section>
+
                 </div>
             </div>
+
+            <!-- Sidebar -->
             <aside class="lost-found-sidebar">
+
                 <div class="sidebar-illustration">
-                    <img src="lost.jpg" alt="lost and found illustration">
+                    <img src="lost.jpg" alt="lost">
                 </div>
+
                 <div class="sidebar-stats">
                     <h2>Stats</h2>
                     <p>Total reports: <span id="statTotal">0</span></p>
                     <p>Lost: <span id="statLost">0</span></p>
                     <p>Found: <span id="statFound">0</span></p>
                 </div>
-                <h2>Tips & Notices</h2>
+
+                <h2>Tips</h2>
                 <ul>
-                    <li>Include clear descriptions and photos when possible.</li>
-                    <li>Check here frequently for updates.</li>
-                    <li>Contact campus security for urgent items.</li>
+                    <li>Include clear descriptions.</li>
+                    <li>Add photos when possible.</li>
+                    <li>Check updates frequently.</li>
                 </ul>
+
             </aside>
+
         </div>
     </div>
 
 </div>
 
 <script>
-// simple in-memory store
-const records = [];
 
+// ---------- LOCAL STORAGE ----------
+function loadRecords() {
+    const saved = localStorage.getItem("lostFoundRecords");
+    return saved ? JSON.parse(saved) : [];
+}
+
+function saveRecords() {
+    localStorage.setItem("lostFoundRecords", JSON.stringify(records));
+}
+
+// ---------- DATA ----------
+const records = loadRecords();
+
+// ---------- STATS ----------
+function updateStats() {
+    document.getElementById('statTotal').textContent = records.length;
+    document.getElementById('statLost').textContent =
+        records.filter(r => r.type === 'Lost').length;
+    document.getElementById('statFound').textContent =
+        records.filter(r => r.type === 'Found').length;
+}
+
+// ---------- TABLE ----------
 function renderTable(filter='All', keyword='') {
+
     const body = document.getElementById('tableBody');
     body.innerHTML = '';
+
     records.forEach(r => {
-        if ((filter === 'All' || r.type === filter) &&
-            (keyword === '' || r.description.toLowerCase().includes(keyword.toLowerCase()) || r.location.toLowerCase().includes(keyword.toLowerCase()))) {
+
+        if (
+            (filter === 'All' || r.type === filter) &&
+            (
+                keyword === '' ||
+                r.description.toLowerCase().includes(keyword.toLowerCase()) ||
+                r.location.toLowerCase().includes(keyword.toLowerCase())
+            )
+        ) {
+
             const tr = document.createElement('tr');
-            const imgCell = r.image ? `<td><img src="${r.image}" width="50"></td>` : '<td></td>';
-            tr.innerHTML = `<td>${r.type}</td><td>${r.description}</td><td>${r.location}</td>${imgCell}`;
+
+            const imgCell = r.image
+                ? `<td><img src="${r.image}" width="50"></td>`
+                : `<td></td>`;
+
+            tr.innerHTML = `
+                <td>${r.type}</td>
+                <td>${r.description}</td>
+                <td>${r.location}</td>
+                ${imgCell}
+            `;
+
             body.appendChild(tr);
         }
     });
+
+    updateStats();
 }
 
+// ---------- FILTER ----------
 function filterType(type) {
     const kw = document.getElementById('searchInput').value;
     renderTable(type, kw);
 }
 
-document.getElementById('searchInput').addEventListener('input', e => {
-    const kw = e.target.value;
-    renderTable('All', kw);
+// ---------- SEARCH ----------
+document.getElementById('searchInput')
+.addEventListener('input', e => {
+    renderTable('All', e.target.value);
 });
 
-// form submission
+// ---------- FORM ----------
 const form = document.getElementById('itemForm');
+
 form.addEventListener('submit', e => {
+
     e.preventDefault();
+
     const data = new FormData(form);
     const fileInput = form.querySelector('input[name="image"]');
+
     const entry = {
         type: data.get('type'),
         description: data.get('description'),
         location: data.get('location'),
         image: null
     };
-    if (fileInput && fileInput.files && fileInput.files[0]) {
+
+    if (fileInput.files && fileInput.files[0]) {
+
         const reader = new FileReader();
+
         reader.onload = function(e) {
             entry.image = e.target.result;
             records.push(entry);
+            saveRecords();
             form.reset();
             renderTable();
         };
+
         reader.readAsDataURL(fileInput.files[0]);
+
     } else {
         records.push(entry);
+        saveRecords();
         form.reset();
         renderTable();
     }
 });
 
-// helper to update sidebar stats
-function updateStats() {
-    const total = records.length;
-    const lostCount = records.filter(r=>r.type==='Lost').length;
-    const foundCount = records.filter(r=>r.type==='Found').length;
-    document.getElementById('statTotal').textContent = total;
-    document.getElementById('statLost').textContent = lostCount;
-    document.getElementById('statFound').textContent = foundCount;
-}
-
-// prepopulate with sample items
-records.push({type:'Lost',description:'Blue umbrella',location:'Library'});
-records.push({type:'Found',description:'Set of keys',location:'Cafeteria'});
+// ---------- INITIAL LOAD ----------
 renderTable();
-updateStats();
 
-// modify renderTable to update stats each time
-const originalRender = renderTable;
-renderTable = function(filter='All', keyword='') {
-    originalRender(filter, keyword);
-    updateStats();
-};
 </script>
 
 </body>
