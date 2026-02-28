@@ -247,11 +247,17 @@ UI/UX design decisions
 Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!
 
 Team Contributions
-[Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-[Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-[Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+Ann Mathew:
+Designed and developed the frontend using HTML and CSS, including the 3-column grid layout, sidebar navigation, modal design for enlarged posts, and overall UI styling.
+
+Sumedha N:
+Implemented JavaScript functionality including post interaction logic, modal behavior, comment handling, debugging duplication issues, and overall client-side functionality testing.
+
+
+
 License
-This project is licensed under the [LICENSE_NAME] License - see the LICENSE file for details.
+This project is licensed under the [LICENSE_NAME]
+License - see the LICENSE file for details.
 
 Common License Options:
 
