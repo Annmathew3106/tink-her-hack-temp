@@ -216,7 +216,15 @@ Project Demo
 Video
 [Add your demo video link here - YouTube, Google Drive, etc.]
 
-Explain what the video demonstrates - key features, user flow, technical highlights
+The above video demonstrates the key features of CampusConnect.
+The portal includes an About section describing its purpose and benefits for students.
+Users can report lost or found items, including descriptions and locations.
+All reported items are displayed in a structured list for easy tracking.
+Students can view notices and announcements to stay updated on campus events.
+The portal allows students to post their doubts and view queries from others.
+Comments can be added to doubts for collaborative problem solving.
+The system includes backend support for securely storing and retrieving doubts and reports.
+Overall, CampusConnect enhances communication, organization, and engagement within the campus.
 
 Additional Demos
 [Add any extra demo materials/links - Live site, APK download, online demo, etc.]
