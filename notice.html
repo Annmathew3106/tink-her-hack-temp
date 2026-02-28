@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notices - Campus Portal</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="notice.css">
+</head>
+<body>
+
+<div class="layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2 class="logo">CampusConnect</h2>
+
+        <ul class="nav-links">
+            <li><a href="home.html">Dashboard</a></li>
+            <li><a href="lost.html">Lost & Found</a></li>
+            <li><a href="notice.html" class="active">Notices & Announcements</a></li>
+            <li><a href="doubts.html">Doubts</a></li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <div class="notice-top-bar">
+            <h1>Notices & Announcements</h1>
+            <a href="create-post.html" class="create-post-btn">+ Create Post</a>
+        </div>
+        
+        <div class="notice-tabs">
+            <button class="tab-btn active" onclick="showTab('notices')">Notices</button>
+            <button class="tab-btn" onclick="showTab('announcements')">Announcements</button>
+        </div>
+
+        <!-- Notices Section -->
+        <div id="notices" class="tab-content active">
+            <h2>Official Notices</h2>
+            <div class="notice-container">
+
+                <div class="notice-card urgent">
+                    <div class="notice-header">
+                        <h3>Mid-Sem Exam Schedule Released</h3>
+                        <span class="priority-badge urgent">Urgent</span>
+                    </div>
+                    <p class="notice-meta">Exam Cell | Feb 20, 2026</p>
+                    <p class="notice-description">Semester exam timetable is now available for all departments. Please check your student portal for personalized schedule.</p>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <h3>Lab Assignment Submission Deadline</h3>
+                        <span class="priority-badge general">General</span>
+                    </div>
+                    <p class="notice-meta">CSE Department | Feb 18, 2026</p>
+                    <p class="notice-description">All CSE 301 lab assignments must be submitted by Feb 25. Late submissions will incur a 10% penalty per day.</p>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <h3>Fee Payment Reminder</h3>
+                        <span class="priority-badge general">General</span>
+                    </div>
+                    <p class="notice-meta">Admin | Feb 15, 2026</p>
+                    <p class="notice-description">Spring semester fee deadline is Feb 28. Ensure timely payment to avoid hold on your records.</p>
+                </div>
+
+                <div class="notice-card alert">
+                    <div class="notice-header">
+                        <h3>Beware of Internship Scam Offers</h3>
+                        <span class="priority-badge alert">Alert</span>
+                    </div>
+                    <p class="notice-meta">Admin | Feb 28, 2026</p>
+                    <p class="notice-description">Reports of fraudulent companies promising MNC certificates in exchange for upfront fees. Do not share personal details; verify with Career Services before applying.</p>
+                </div>
+
+                <div class="notice-card">
+                    <div class="notice-header">
+                        <h3>Campus Holiday Announcement</h3>
+                        <span class="priority-badge general">General</span>
+                    </div>
+                    <p class="notice-meta">Admin | Feb 12, 2026</p>
+                    <p class="notice-description">Campus will remain closed on March 8 for Foundation Day. Regular classes will resume on March 9.</p>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Announcements Section -->
+        <div id="announcements" class="tab-content">
+            <h2>Campus Announcements</h2>
+            <div class="announcement-container">
+
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3>Coding Club Recruitment Open</h3>
+                        <span class="announcement-icon">💻</span>
+                    </div>
+                    <p class="announcement-meta">Posted by Coding Club | Feb 18, 2026</p>
+                    <p class="announcement-description">Looking for talented students interested in web development, competitive programming, and open-source contribution. Join our recruitment drive this week!</p>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3>Web Development Workshop</h3>
+                        <span class="announcement-icon">🎓</span>
+                    </div>
+                    <p class="announcement-meta">Posted by Tech Community | Feb 16, 2026</p>
+                    <p class="announcement-description">Free hands-on workshop on React and Node.js this Saturday, 2 PM in the seminar hall. Freshers welcome! Register at the tech club counter.</p>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3>Annual Sports Inter-Class Competition</h3>
+                        <span class="announcement-icon">🏃</span>
+                    </div>
+                    <p class="announcement-meta">Posted by Sports Committee | Feb 14, 2026</p>
+                    <p class="announcement-description">Sign up your team for the inter-class sports championship starting March 1st. Multiple events including cricket, badminton, and relay races!</p>
+                </div>
+
+                <div class="announcement-card">
+                    <div class="announcement-header">
+                        <h3>Cultural Festival Planning Meeting</h3>
+                        <span class="announcement-icon">🎭</span>
+                    </div>
+                    <p class="announcement-meta">Posted by Cultural Committee | Feb 13, 2026</p>
+                    <p class="announcement-description">All interested students are invited for the planning meeting of our annual cultural fest. Share your ideas and help make it bigger and better!</p>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+function showTab(tabName) {
+    // Hide all tabs
+    const tabs = document.querySelectorAll('.tab-content');
+    tabs.forEach(tab => tab.classList.remove('active'));
+    
+    // Deactivate all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+    
+    // Show selected tab and activate button
+    document.getElementById(tabName).classList.add('active');
+    event.target.classList.add('active');
+}
+</script>
+
+</body>
+</html>
