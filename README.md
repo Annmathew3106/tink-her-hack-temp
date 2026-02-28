@@ -1,4 +1,4 @@
-<img width="1913" height="1076" alt="Screenshot 2026-02-28 172855" src="https://github.com/user-attachments/assets/867a1db6-a169-4933-a4de-43bf1fb2e1bc" />Campus connect 🎯
+Campus connect 🎯
 
 Basic Details
 Team Name: CodeSquared
@@ -57,6 +57,12 @@ THIS IS THE MAIN DASHBOARD OF OUR WEBSITE.IT DISPLAYS THE FEATURES OF THE WENSIT
 <img width="1919" height="1079" alt="Screenshot 2026-02-28 173156" src="https://github.com/user-attachments/assets/7153e6a9-7ccb-449f-9330-5b81f70aad61" />
 THIS IS LOST AND FOUND SECTION WHERE YOU CAN POST ABOUT THE LOST AND FOUND ITEMS.
 
+<img width="1919" height="1079" alt="Screenshot 2026-02-28 173541" src="https://github.com/user-attachments/assets/5622bc08-3cce-4d89-bd0c-d6457e3e7f47" />
+THIS IS NOTICE AND ANNOUNCEMENT SECTION WHERE YOU CAN POST VIEW .
+
+<img width="1919" height="1079" alt="Screenshot 2026-02-28 173716" src="https://github.com/user-attachments/assets/b8d679fd-db5d-4292-954e-274f6e73cc5f" />
+THIS IS THE DOUBT SECTION WHERE YOU CAN POST AND VIEW IT.
+
 Diagrams
 System Architecture:
 
@@ -66,20 +72,6 @@ Application Workflow:
 
 Workflow Add caption explaining your workflow
 
-For Hardware:
-Schematic & Circuit
-![Circuit](Add your circuit diagram here) Add caption explaining connections
-
-![Schematic](Add your schematic diagram here) Add caption explaining the schematic
-
-Build Photos
-![Team](Add photo of your team here)
-
-![Components](Add photo of your components here) List out all components shown
-
-![Build](Add photos of build process here) Explain the build steps
-
-![Final](Add photo of final product here) Explain the final build
 
 Additional Documentation
 For Web Projects with Backend:
@@ -145,37 +137,6 @@ flutter build apk
 flutter build ios
 # or
 xcodebuild -workspace App.xcworkspace -scheme App -configuration Debug
-For Hardware Projects:
-Bill of Materials (BOM)
-Component	Quantity	Specifications	Price	Link/Source
-Arduino Uno	1	ATmega328P, 16MHz	₹450	[Link]
-LED	5	Red, 5mm, 20mA	₹5 each	[Link]
-Resistor	5	220Ω, 1/4W	₹1 each	[Link]
-Breadboard	1	830 points	₹100	[Link]
-Jumper Wires	20	Male-to-Male	₹50	[Link]
-[Add more...]				
-Total Estimated Cost: ₹[Amount]
-
-Assembly Instructions
-Step 1: Prepare Components
-
-Gather all components listed in the BOM
-Check component specifications
-Prepare your workspace Step 1 Caption: All components laid out
-Step 2: Build the Power Supply
-
-Connect the power rails on the breadboard
-Connect Arduino 5V to breadboard positive rail
-Connect Arduino GND to breadboard negative rail Step 2 Caption: Power connections completed
-Step 3: Add Components
-
-Place LEDs on breadboard
-Connect resistors in series with LEDs
-Connect LED cathodes to GND
-Connect LED anodes to Arduino digital pins (2-6) Step 3 Caption: LED circuit assembled
-Step 4: [Continue for all steps...]
-
-Final Assembly: Final Build Caption: Completed project ready for testing
 
 For Scripts/CLI Tools:
 Command Reference
