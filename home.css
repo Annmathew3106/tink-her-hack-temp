@@ -1,3 +1,4 @@
+/* Reset */
 * {
     margin: 0;
     padding: 0;
@@ -6,16 +7,10 @@
 }
 
 :root {
-    --sidebar-width: 360px;
+    --sidebar-width: 240px;
 }
 
-.feature-card h3 {
-    margin-bottom: 10px;
-}
-
-.feature-card p {
-    margin: 0;
-}
+/* Body */
 body {
     background: linear-gradient(135deg, #faf5fb 0%, #f5f0fa 100%);
     overflow-x: hidden;
@@ -23,7 +18,7 @@ body {
     font-weight: 400;
 }
 
-/* ❓ Question Mark Background */
+/* Question Mark Background */
 .questions-bg {
     position: fixed;
     inset: 0;
@@ -36,12 +31,8 @@ body {
     bottom: -50px;
     font-size: 40px;
     font-weight: 900;
-    /* fully opaque for highest contrast */
-    color: rgba(159,100,150,1);
+    color: rgba(37, 99, 235, 0.6);
     animation: floatQ 10s linear infinite;
-    /* darker for better visibility */
-    color: rgba(37,99,235,0.6);
-    animation: floatQ linear infinite;
 }
 
 .questions-bg span:nth-child(1) { left: 10%; animation-duration: 8s; }
@@ -71,33 +62,27 @@ body {
 .sidebar {
     width: var(--sidebar-width);
     height: 100vh;
-    background: linear-gradient(135deg, #0C0420 0%, #1a0b2e 100%);
-    padding: 25px 30px 25px 25px;
-    width: 240px;
     background: #1e293b;
     padding: 25px 15px;
     position: fixed;
     top: 0;
-    bottom: 0;
+    left: 0;
     color: white;
     box-shadow: 4px 0 20px rgba(0, 0, 0, 0.15);
     z-index: 1000;
-    overflow: visible;
 }
 
+/* Logo */
 .logo {
     text-align: center;
     margin-bottom: 22px;
     font-size: 1.25rem;
     font-weight: 700;
-    letter-spacing: 0.2px;
-    text-transform: none;
     background: linear-gradient(135deg, #9F6496, #D391B0);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    display: inline-block;
-    max-width: calc(var(--sidebar-width) - 40px);
+    white-space: nowrap;
     overflow: visible;
 }
 
@@ -139,7 +124,7 @@ body {
     transform: translateX(5px);
     box-shadow: 0 4px 12px rgba(159, 100, 150, 0.3);
 }
-/* end nav hover */
+
 /* Main Content */
 .main-content {
     margin-left: var(--sidebar-width);
@@ -154,7 +139,6 @@ body {
     color: #0C0420;
     font-weight: 800;
     letter-spacing: -1px;
-}\n
     width: 100%;
 }
 
@@ -165,8 +149,8 @@ body {
     border-radius: 16px;
     box-shadow: 0 10px 40px rgba(159, 100, 150, 0.1);
     font-weight: 700;
-    animation: float 4s ease-in-out infinite;
     border: 2px solid #EDE6F0;
+    animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -183,7 +167,6 @@ body {
     color: #0C0420;
     font-weight: 800;
     font-size: 2rem;
-    letter-spacing: -0.5px;
 }
 
 .feature-grid {
@@ -204,7 +187,7 @@ body {
     font-weight: 800;
     color: #9F6496;
     font-size: 1.3rem;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
 }
 
 .feature-card p {
@@ -232,18 +215,11 @@ body {
     padding: 45px;
     border-radius: 20px;
     font-weight: 800;
-    box-shadow: 0 20px 60px rgba(159, 100, 150, 0.12);
-    animation: glowBox 3s infinite alternate;
     border: 2px solid #EDE6F0;
+    animation: glowBox 3s infinite alternate;
 }
 
 @keyframes glowBox {
-    from {
-        box-shadow: 0 20px 50px rgba(159, 100, 150, 0.08);
-    }
-    to {
-        box-shadow: 0 20px 60px rgba(159, 100, 150, 0.15);
-    }
     from { box-shadow: 0 0 15px rgba(37,99,235,0.4); }
     to { box-shadow: 0 0 30px rgba(37,99,235,0.8); }
 }
@@ -252,12 +228,5 @@ body {
     margin-bottom: 15px;
     line-height: 1.8;
     color: #0C0420;
-    /* ensure logo doesn't clip */
-    .sidebar .logo {
-        white-space: nowrap;
-        overflow: visible;
-        padding-right: 6px;
-    }
     font-size: 1rem;
 }
-
