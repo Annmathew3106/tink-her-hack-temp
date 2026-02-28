@@ -216,7 +216,15 @@ Project Demo
 Video
 [Add your demo video link here - YouTube, Google Drive, etc.]
 
-Explain what the video demonstrates - key features, user flow, technical highlights
+The above video demonstrates the key features of CampusConnect.
+The portal includes an About section describing its purpose and benefits for students.
+Users can report lost or found items, including descriptions and locations.
+All reported items are displayed in a structured list for easy tracking.
+Students can view notices and announcements to stay updated on campus events.
+The portal allows students to post their doubts and view queries from others.
+Comments can be added to doubts for collaborative problem solving.
+The system includes backend support for securely storing and retrieving doubts and reports.
+Overall, CampusConnect enhances communication, organization, and engagement within the campus.
 
 Additional Demos
 [Add any extra demo materials/links - Live site, APK download, online demo, etc.]
@@ -247,11 +255,17 @@ UI/UX design decisions
 Note: Proper documentation of AI usage demonstrates transparency and earns bonus points in evaluation!
 
 Team Contributions
-[Name 1]: [Specific contributions - e.g., Frontend development, API integration, etc.]
-[Name 2]: [Specific contributions - e.g., Backend development, Database design, etc.]
-[Name 3]: [Specific contributions - e.g., UI/UX design, Testing, Documentation, etc.]
+Ann Mathew:
+Designed and developed the frontend using HTML and CSS, including the 3-column grid layout, sidebar navigation, modal design for enlarged posts, and overall UI styling.
+
+Sumedha N:
+Implemented JavaScript functionality including post interaction logic, modal behavior, comment handling, debugging duplication issues, and overall client-side functionality testing.
+
+
+
 License
-This project is licensed under the [LICENSE_NAME] License - see the LICENSE file for details.
+This project is licensed under the [LICENSE_NAME]
+License - see the LICENSE file for details.
 
 Common License Options:
 
