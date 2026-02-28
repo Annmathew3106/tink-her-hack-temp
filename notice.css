@@ -1,0 +1,204 @@
+/* Notices & Announcements Page Styles */
+
+/* Top Bar */
+.notice-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.notice-top-bar h1 {
+    margin: 0;
+}
+
+/* Create Post Button */
+.create-post-btn {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.create-post-btn:hover {
+    background-color: #1e40af;
+}
+
+/* Tab Navigation */
+.notice-tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    color: #64748b;
+    font-size: 16px;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    color: #1e293b;
+}
+
+.tab-btn.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Notice Container */
+.notice-container,
+.announcement-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Notice Card */
+.notice-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid #cbd5e1;
+    transition: 0.3s;
+}
+
+.notice-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.notice-card.urgent {
+    border-left-color: #ef4444;
+}
+
+/* Notice Header */
+.notice-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin-bottom: 10px;
+}
+
+.notice-header h3 {
+    color: #1e293b;
+    margin: 0;
+    flex: 1;
+}
+
+/* Priority Badge */
+.priority-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.priority-badge.urgent {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.priority-badge.general {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.priority-badge.alert {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+/* Notice Meta */
+.notice-meta {
+    font-size: 14px;
+    color: #64748b;
+    margin: 5px 0;
+}
+
+.notice-description {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Announcement Card */
+.announcement-card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    border-left: 4px solid #06b6d4;
+    transition: 0.3s;
+}
+
+.announcement-card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+}
+
+/* Announcement Header */
+.announcement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.announcement-header h3 {
+    color: #1e293b;
+    margin: 0;
+    flex: 1;
+}
+
+.announcement-icon {
+    font-size: 24px;
+}
+
+.announcement-meta {
+    font-size: 14px;
+    color: #64748b;
+    margin: 5px 0;
+}
+
+.announcement-description {
+    color: #475569;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .notice-header,
+    .announcement-header {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .tab-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}

@@ -66,3 +66,7 @@ body {
     background-color: #2563eb;
     color: white;
 }
+
+.nav-links a.active:hover {
+    background-color: #1e40af;
+}
