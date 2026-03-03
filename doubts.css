@@ -341,3 +341,19 @@ body {
 .comment-btn:active {
     transform: translateY(0);
 }
+
+/* Comment Section */
+.comment-list {
+    margin-top: 12px;
+}
+
+.single-comment {
+    font-size: 0.85rem;
+    padding: 6px 8px;
+    background: #f3edf5;
+    border-radius: 6px;
+    margin-bottom: 6px;
+    color: #0C0420;
+    word-wrap: break-word;
+}
+
