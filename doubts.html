@@ -126,6 +126,8 @@
 </div>
 
 <script>
+// Clear old data only on first load
+if(!localStorage.getItem("doubts")) localStorage.removeItem("doubts");
 
 window.onload = function(){
 const postsContainer = document.getElementById("postsContainer");
@@ -137,7 +139,7 @@ if(doubts.length===0){
         name:"Admin",
         year:"1st year",
         branch:"CS",
-        doubt:"Welcome to the Doubts section! Got the answer? Drop it in the comments and help a friend 😊",
+        doubt:"💬 Got an answer? Share it here and help a fellow student! 😊",
         image:"https://img.freepik.com/free-vector/online-education-concept-illustration_114360-5946.jpg",
         comments:[], likes:0, liked:false
     }];
@@ -148,7 +150,7 @@ function saveData(){ localStorage.setItem("doubts", JSON.stringify(doubts)); }
 
 function renderComments(doubt, modal){
     const container = modal.querySelector(".comments-container");
-   
+    container.innerHTML = ""; 
     doubt.comments.forEach((c,ci)=>{
         if(!c.text) return;
         const commentDiv = document.createElement("div");
@@ -189,7 +191,6 @@ function renderComments(doubt, modal){
             });
         });
 
-        // Render existing replies
         if(c.replies && c.replies.length>0){
             c.replies.forEach(r=>{
                 if(!r.text) return;
@@ -249,13 +250,17 @@ doubts.forEach((d,index)=>{
         e.stopPropagation();
         const modal = document.createElement("div");
         modal.classList.add("modal");
+        // Friendly placeholder for default Admin post
+        const placeholder = (d.name==="Admin" && d.year==="1st year" && d.branch==="CS") ? 
+            "💬 Got an answer? Share it here and help a fellow student! 😊" : 
+            "💬 Add a comment...";
         modal.innerHTML = `
             <div class="comments-modal">
                 <span class="close-btn">&times;</span>
                 <h3>Comments</h3>
                 <div class="comments-container"></div>
                 <div class="comment-input">
-                    <textarea placeholder="Add a comment..."></textarea>
+                    <textarea placeholder="${placeholder}"></textarea>
                     <button>Post</button>
                 </div>
             </div>
@@ -267,8 +272,6 @@ doubts.forEach((d,index)=>{
 
         const textarea = modal.querySelector("textarea");
         const commentBtn = modal.querySelector("button");
-        const container = modal.querySelector(".comments-container");
-
         renderComments(d, modal);
 
         commentBtn.addEventListener("click", ()=>{
@@ -284,7 +287,6 @@ doubts.forEach((d,index)=>{
         });
     });
 
-    // Enlarge post modal
     post.addEventListener("click", e=>{
         if(e.target.classList.contains("comment-icon") || e.target.classList.contains("post-like")) return;
         const modal = document.createElement("div");
