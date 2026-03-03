@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="home.css">
 <link rel="stylesheet" href="doubts.css">
 <style>
-/* Comment Icon */
+/* Comment Icon & Count */
 .comment-icon {
     cursor: pointer;
     font-size: 1.2rem;
@@ -49,7 +49,7 @@
     font-size: 22px;
     font-weight: bold;
     cursor: pointer;
-    color: #9F6496; /* visible colored close button */
+    color: #9F6496;
 }
 .comments-modal .close-btn:hover { color: #7B466A; }
 
@@ -79,6 +79,27 @@
     background: #9F6496; color: white; cursor: pointer;
 }
 .comment-input button:hover { background: #7B466A; }
+
+/* Post enlarge modal */
+.modal-content {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+}
+.modal-content .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    font-size: 22px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #9F6496;
+}
+.modal-content .close-btn:hover { color: #7B466A; }
+.modal-content img { max-width: 100%; border-radius: 8px; margin-top: 10px; }
 </style>
 </head>
 <body>
@@ -105,20 +126,88 @@
 </div>
 
 <script>
+
 window.onload = function(){
 const postsContainer = document.getElementById("postsContainer");
 let doubts = JSON.parse(localStorage.getItem("doubts")) || [];
+
+// Default post
 if(doubts.length===0){
     doubts = [{
-        name:"Admin", year:"1st year", branch:"CS",
+        name:"Admin",
+        year:"1st year",
+        branch:"CS",
         doubt:"Welcome to the Doubts section! Got the answer? Drop it in the comments and help a friend 😊",
-        date:"2026-01-01", image:"https://img.freepik.com/free-vector/online-education-concept-illustration_114360-5946.jpg",
+        image:"https://img.freepik.com/free-vector/online-education-concept-illustration_114360-5946.jpg",
         comments:[], likes:0, liked:false
     }];
     localStorage.setItem("doubts", JSON.stringify(doubts));
 }
 
 function saveData(){ localStorage.setItem("doubts", JSON.stringify(doubts)); }
+
+function renderComments(doubt, modal){
+    const container = modal.querySelector(".comments-container");
+   
+    doubt.comments.forEach((c,ci)=>{
+        if(!c.text) return;
+        const commentDiv = document.createElement("div");
+        commentDiv.classList.add("comment-item");
+        commentDiv.innerHTML=`${c.text}<div class="comment-actions"><span class="comment-like ${c.liked?'liked':''}">&#10084;</span> <span class="reply-btn">Reply</span></div>`;
+        container.appendChild(commentDiv);
+
+        const heart = commentDiv.querySelector(".comment-like");
+        const replyBtn = commentDiv.querySelector(".reply-btn");
+
+        heart.addEventListener("click", e=>{
+            e.stopPropagation();
+            c.liked = !c.liked;
+            heart.classList.toggle("liked", c.liked);
+            saveData();
+        });
+
+        replyBtn.addEventListener("click", e=>{
+            e.stopPropagation();
+            const rtxt = prompt("Write reply:");
+            if(!rtxt) return;
+            if(!c.replies) c.replies=[];
+            const rObj={text:rtxt, liked:false};
+            c.replies.push(rObj);
+            saveData();
+
+            const rDiv = document.createElement("div");
+            rDiv.classList.add("reply-item");
+            rDiv.innerHTML=`${rObj.text}<div class="reply-actions"><span class="reply-like">&#10084;</span></div>`;
+            commentDiv.appendChild(rDiv);
+
+            const rHeart = rDiv.querySelector(".reply-like");
+            rHeart.addEventListener("click", e=>{
+                e.stopPropagation();
+                rObj.liked=!rObj.liked;
+                rHeart.classList.toggle("liked", rObj.liked);
+                saveData();
+            });
+        });
+
+        // Render existing replies
+        if(c.replies && c.replies.length>0){
+            c.replies.forEach(r=>{
+                if(!r.text) return;
+                const rDiv = document.createElement("div");
+                rDiv.classList.add("reply-item");
+                rDiv.innerHTML=`${r.text}<div class="reply-actions"><span class="reply-like ${r.liked?'liked':''}">&#10084;</span></div>`;
+                commentDiv.appendChild(rDiv);
+                const rHeart = rDiv.querySelector(".reply-like");
+                rHeart.addEventListener("click", e=>{
+                    e.stopPropagation();
+                    r.liked=!r.liked;
+                    rHeart.classList.toggle("liked", r.liked);
+                    saveData();
+                });
+            });
+        }
+    });
+}
 
 doubts.forEach((d,index)=>{
     const post = document.createElement("div");
@@ -130,7 +219,6 @@ doubts.forEach((d,index)=>{
             <span class="post-name">${d.name}</span>
             <span class="post-year">${d.year}</span> —
             <span class="post-branch">${d.branch}</span>
-            <span class="post-date">${d.date}</span>
         </div>
         <div class="post-content">
             <p class="post-text">${d.doubt}</p>
@@ -138,18 +226,21 @@ doubts.forEach((d,index)=>{
         </div>
         <div class="post-actions">
             <span class="post-like ${d.liked?'liked':''}">&#10084; ${d.likes||0}</span>
-            <span class="comment-icon">&#128172; Comments</span>
+            <span class="comment-icon">&#128172; <span class="comment-count">${d.comments?d.comments.length:0}</span></span>
         </div>
     `;
 
     const postLike = post.querySelector(".post-like");
     const commentIcon = post.querySelector(".comment-icon");
+    const commentCountSpan = post.querySelector(".comment-count");
+
+    function updateCommentCount(){ commentCountSpan.textContent = d.comments ? d.comments.length : 0; }
 
     postLike.addEventListener("click", e=>{
         e.stopPropagation();
-        if(!d.liked){ d.likes=(d.likes||0)+1; d.liked=true; }
-        else { d.likes-=1; d.liked=false; }
-        postLike.classList.toggle("liked");
+        d.liked = !d.liked;
+        d.likes = d.liked ? (d.likes||0)+1 : (d.likes||0)-1;
+        postLike.classList.toggle("liked", d.liked);
         postLike.innerHTML = `&#10084; ${d.likes}`;
         saveData();
     });
@@ -158,43 +249,27 @@ doubts.forEach((d,index)=>{
         e.stopPropagation();
         const modal = document.createElement("div");
         modal.classList.add("modal");
-
-        let commentsHTML="";
-        if(d.comments && d.comments.length>0){
-            d.comments.forEach((c,i)=>{
-                let likedClass = c.liked?"liked":"";
-                let repliesHTML="";
-                if(c.replies && c.replies.length>0){
-                    c.replies.forEach(r=>{
-                        let rLiked = r.liked?"liked":"";
-                        repliesHTML+=`<div class="reply-item">${r.text}<div class="reply-actions"><span class="reply-like ${rLiked}">&#10084;</span></div></div>`;
-                    });
-                }
-                commentsHTML+=`<div class="comment-item">${c.text}<div class="comment-actions"><span class="comment-like ${likedClass}">&#10084;</span> <span class="reply-btn">Reply</span></div>${repliesHTML}</div>`;
-            });
-        }
-
         modal.innerHTML = `
             <div class="comments-modal">
                 <span class="close-btn">&times;</span>
                 <h3>Comments</h3>
-                <div class="comments-container">${commentsHTML}</div>
+                <div class="comments-container"></div>
                 <div class="comment-input">
                     <textarea placeholder="Add a comment..."></textarea>
                     <button>Post</button>
                 </div>
             </div>
         `;
-
         document.body.appendChild(modal);
 
-        // Close button inside comments modal
         const closeBtn = modal.querySelector(".close-btn");
         closeBtn.onclick = ()=> modal.remove();
 
-        const commentBtn = modal.querySelector("button");
         const textarea = modal.querySelector("textarea");
-        const commentsContainer = modal.querySelector(".comments-container");
+        const commentBtn = modal.querySelector("button");
+        const container = modal.querySelector(".comments-container");
+
+        renderComments(d, modal);
 
         commentBtn.addEventListener("click", ()=>{
             const txt = textarea.value.trim();
@@ -203,42 +278,9 @@ doubts.forEach((d,index)=>{
             const newComment={text:txt, liked:false, replies:[]};
             d.comments.push(newComment);
             saveData();
-
-            const div = document.createElement("div");
-            div.classList.add("comment-item");
-            div.innerHTML=`${newComment.text}<div class="comment-actions"><span class="comment-like">&#10084;</span> <span class="reply-btn">Reply</span></div>`;
-            const heart = div.querySelector(".comment-like");
-            const replyBtn = div.querySelector(".reply-btn");
-
-            heart.addEventListener("click", e=>{
-                e.stopPropagation();
-                newComment.liked = !newComment.liked;
-                heart.classList.toggle("liked");
-                saveData();
-            });
-
-            replyBtn.addEventListener("click", e=>{
-                e.stopPropagation();
-                const rtxt = prompt("Write reply:");
-                if(!rtxt) return;
-                const rObj={text:rtxt, liked:false};
-                newComment.replies.push(rObj);
-                saveData();
-                const rDiv = document.createElement("div");
-                rDiv.classList.add("reply-item");
-                rDiv.innerHTML=`${rObj.text}<div class="reply-actions"><span class="reply-like">&#10084;</span></div>`;
-                const rHeart = rDiv.querySelector(".reply-like");
-                rHeart.addEventListener("click", e=>{
-                    e.stopPropagation();
-                    rObj.liked=!rObj.liked;
-                    rHeart.classList.toggle("liked");
-                    saveData();
-                });
-                div.appendChild(rDiv);
-            });
-
-            commentsContainer.appendChild(div);
+            updateCommentCount();
             textarea.value="";
+            renderComments(d, modal);
         });
     });
 
