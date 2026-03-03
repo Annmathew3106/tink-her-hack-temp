@@ -4,30 +4,24 @@
     <meta charset="UTF-8">
     <title>Doubts</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- THIS LINE IS CRITICAL -->
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="doubts.css">
 </head>
 <body>
 
 <div class="layout">
-    <!-- Top right option -->
+
     <div class="top-right-option">
         <a href="doubtcreate.html">CREATE</a>
     </div>
 
-    <!-- Sidebar -->
     <div class="sidebar">
         <h2 class="logo">CampusConnect</h2>
-
         <ul class="nav-links">
             <li><a href="index.html">Dashboard</a></li>
             <li><a href="lost.html">Lost & Found</a></li>
             <li><a href="notice.html">Notices & Announcements</a></li>
-           
-            
-            <li><a href="doubts.html">Doubts</a></li>
+            <li><a href="doubts.html" class="active">Doubts</a></li>
         </ul>
     </div>
 
@@ -36,119 +30,67 @@
     <p class="tagline">Ask freely and help the community grow.</p>
     <p class="intro">Your doubt might be someone else’s too.</p>
 
-    <!-- dummy posts container -->
-    <div class="posts-container">
-        <div class="post-box">
-            <div class="post-header">
-                <span class="post-name">Alice</span> <span class="post-year">1st year</span> &mdash; <span class="post-branch">CS</span>
-                <span class="post-date">2026-02-28</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">Is there any internship opportunity in AI this summer?</p>
-                <img class="post-image" src="https://img.freepik.com/free-photo/document-marketing-strategy-business-concept_53876-124278.jpg" alt="attachment" />
-            </div>
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
-            </div>
-        </div>
-        <div class="post-box">
-            <div class="post-header">
-                <span class="post-name">Bob</span> <span class="post-year">2nd year</span> &mdash; <span class="post-branch">ECE</span>
-                <span class="post-date">2026-01-15</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">How to prepare for the upcoming placements?</p>
-                <img class="post-image" src="https://img.freepik.com/premium-photo/human-resources-people-networking_31965-1240.jpg?semt=ais_rp_progressive&w=740&q=80" alt="attachment" />
-            </div>
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
-            </div>
-        </div>
-        <div class="post-box">
+    <div class="posts-container" id="postsContainer">
 
-            <div class="post-header">
-                <span class="post-name">Carol</span> <span class="post-year">3rd year</span> &mdash; <span class="post-branch">Mech</span>
-                <span class="post-date">2025-12-05</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">What extracurricular activities are good for engineering students?</p>
-                 <img class="post-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEOLFKr2L20yn_o_tXY-piTZod_HMjiNKDTmJ0Q-Abbfex2w7pgSIwxi-Q2GDi-tu9e1s&usqp=CAU" alt="attachment" />
-
-            </div>
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
-            </div>
-        </div>
+        <!-- DEFAULT POST WITH IMAGE -->
         <div class="post-box">
             <div class="post-header">
-                <span class="post-name">Dave</span> <span class="post-year">2nd year</span> &mdash; <span class="post-branch">Civil</span>
-                <span class="post-date">2026-02-20</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">How do I accumulate KTU activity points efficiently?</p>
-                <img class="post-image" src="https://img.freepik.com/free-vector/team-happy-employees-winning-award-celebrating-success-business-people-enjoying-victory-getting-gold-cup-trophy-vector-illustration-reward-prize-champions-s_74855-8601.jpg?semt=ais_rp_progressive&w=740&q=80" alt="KTU points proof" />
-            </div>
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
-            </div>
-        </div>
-        <div class="post-box">
-            <div class="post-header">
-                <span class="post-name">Eva</span> <span class="post-year">1st year</span> &mdash; <span class="post-branch">EE</span>
-                <span class="post-date">2026-02-25</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">What is the process to join college clubs?</p>
-                <img class="post-image" src="https://img.freepik.com/free-vector/student-club-abstract-concept-illustration-student-organization-university-interest-club-after-school-activity-program-college-association-professional-hobby-society_335657-3493.jpg" alt="attachment" />
-
-            </div>
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
-            </div>
-        </div>
-         <div class="post-box">
-            <div class="post-header">
-                <span class="post-name">Anika</span> <span class="post-year">2nd year</span> &mdash; <span class="post-branch">CSE</span>
-                <span class="post-date">2026-02-20</span>
-            </div>
-            <div class="post-content">
-                <p class="post-text">Which is the best and beginner friendly platform for studying backend?</p>
-                <img class="post-image" src="https://media.istockphoto.com/id/2038098196/vector/software-backend-development-work-process-with-program-code-by-professional-coder.jpg?s=612x612&w=0&k=20&c=4Vx7kdTirBpPniy5fdrCCxV34fNeS7Ooqr5SgkZ4dhI=" alt="attachment"/>
+                <span class="post-name">Admin</span>
+                <span class="post-year">1st year</span> —
+                <span class="post-branch">CS</span>
+                <span class="post-date">2026-01-01</span>
             </div>
 
-            <div class="comments">
-                <textarea placeholder="Add a comment..."></textarea>
-                <button class="comment-btn">Post</button>
+            <div class="post-content">
+                <p class="post-text">
+                    Welcome to the Doubts section! Start asking questions.
+                </p>
+
+                <img class="post-image"
+                src="https://img.freepik.com/free-vector/online-education-concept-illustration_114360-5946.jpg"
+                alt="Welcome Image">
             </div>
         </div>
-        
+
     </div>
-    
-    
-
-    <script>
-        // enlarge on click and show comment area in modal
-        const modal = document.getElementById('post-modal');
-        const modalContent = modal.querySelector('.modal-content');
-        const closeBtn = modal.querySelector('.modal-close');
-        document.querySelectorAll('.post-box').forEach(box => {
-            box.addEventListener('click', () => {
-                modalContent.innerHTML = box.innerHTML;
-                modal.classList.add('active');
-            });
-        });
-        closeBtn.addEventListener('click', () => modal.classList.remove('active'));
-        modal.addEventListener('click', e => {
-            if (e.target === modal) modal.classList.remove('active');
-        });
-    </script>
 </main>
 
+</div>
+
+<script>
+window.onload = function() {
+
+    const postsContainer = document.getElementById("postsContainer");
+    let doubts = JSON.parse(localStorage.getItem("doubts")) || [];
+
+    doubts.forEach(function(d) {
+
+        const post = document.createElement("div");
+        post.classList.add("post-box");
+
+        let imagePart = "";
+        if(d.image){
+            imagePart = `<img class="post-image" src="${d.image}" alt="Uploaded Image">`;
+        }
+
+        post.innerHTML = `
+            <div class="post-header">
+                <span class="post-name">${d.name}</span>
+                <span class="post-year">${d.year}</span> —
+                <span class="post-branch">${d.branch}</span>
+                <span class="post-date">${d.date}</span>
+            </div>
+            <div class="post-content">
+                <p class="post-text">${d.doubt}</p>
+                ${imagePart}
+            </div>
+        `;
+
+        postsContainer.appendChild(post);
+    });
+
+};
+</script>
 
 </body>
 </html>
